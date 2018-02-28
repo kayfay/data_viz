@@ -1,18 +1,27 @@
+# FRED Graph Observations
+# Federal Reserve Economic Data
+# Link: https://fred.stlouisfed.org
+# Help: https://fred.stlouisfed.org/help-faq
+# Economic Research Division
+# Federal Reserve Bank of St. Louis
+#
+# PPOILUSDM	Global price of Palm Oil, U.S. Dollars per Metric Ton, Monthly, Not Seasonally Adjusted
+#
+# Frequency: Monthly
+# observation_date	PPOILUSDM Sell in US	POLVOILUSDQ Overall sell in the World
+
 library(ggplot2)
 
 o.data <- read.delim("oil.txt", sep="\t", header=F)
 
 colnames(o.data) <- c("Date", "Palm Oil Sales U.S.", "Palm Oil Sales World")
 
-o.data[1] <- as.date(unlist(oo.data[1]), format = "%Y-%d-%m")
-o.data[2] <- as.numeric(unlist(oo.data[2]))
-o.data[3] <- as.numeric(unlist(oo.data[3]))
+Date   <- as.Date(unlist(o.data[1]), format = "%Y-%m-%d")
+U.S.   <- as.numeric(unlist(o.data[2]))
+Global <- as.numeric(unlist(o.data[3]))
+o2.data <- data.frame(Date, U.S., Global)
 
-
-Date <- as.Date(unlist(oo.data[1]), format = "%Y-%d-%m")
-U.S.   <- as.numeric(unlist(oo.data[2]))
-Global <- as.numeric(unlist(oo.data[3]))
-
+png(filename = "Rplot%03.d.png")
 barplot(cbind(U.S., Global), beside = T, horiz = T, main = "Palm Oil Sales in U.S. Dollars")
 
 ggplot(o2.data, aes(Date, y = Sales, color = Market)) +
@@ -89,3 +98,4 @@ ggplot(o2.data, aes(Date, y = Sales, color = Market)) +
     geom_abline(intercept = log(785.8735), slope = 0, linetype = 2, color = "grey") +
     ggtitle("Palm Oil Sales")
 
+dev.off()
