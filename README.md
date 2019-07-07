@@ -1,3 +1,3 @@
 # Data visualization repo
 
-A repo containing data visualization projects
+Data visualization and statistics projects
