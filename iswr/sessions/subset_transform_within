@@ -1,0 +1,10 @@
+subset(thuesen, blood.glucose<7)
+
+transform(thuesen, log.gluc=log(blood.glucose))
+
+thue1 <- within(thuesen, {
+    log.gluc <- log(blood.glucose)
+    m <- mean(log.gluc)
+    centered.log.gluc <- log.gluc - m
+    rm(m)
+    })

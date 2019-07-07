@@ -1,0 +1,5 @@
+help(".Library")
+
+library(survival)
+
+detach("package:survival")

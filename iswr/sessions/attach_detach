@@ -1,0 +1,20 @@
+example:
+plot(thuesen$blood.glucose, thuesen$short.velocity)
+
+attach(thusen)
+
+plot(blood.glucose, short.velocity)
+
+view search path (modular package system):
+search() 
+
+.GlobalEnv (workspace)
+package:base (system library)
+Autoloads 
+package:stats (stats routines, Wilcoxon test)
+
+searching dataframes before .GlobalEnv because .GlobalEnv is always at 1
+with(dataframe, plot(variable.1, variable.2))
+
+detach(dataframe)
+search()

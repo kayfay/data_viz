@@ -1,0 +1,10 @@
+HTML files using help.start()
+
+help(aggregate)
+
+?aggregate
+
+help.search("kendal")
+
+??kendal
+

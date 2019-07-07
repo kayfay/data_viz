@@ -1,0 +1,9 @@
+ls()
+
+rm(var.x, var.y)
+
+rm(list=ls())
+
+save.image(file = ".RData")
+load.image(file = ".RData")
+

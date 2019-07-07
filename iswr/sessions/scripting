@@ -1,0 +1,5 @@
+source(file, echo=T)
+
+for sessions: savehsitory(file = ".Rhistory") and loadhistory(file = ".Rhistory")
+
+history(max.show = 25, reverse = FALSE)
